@@ -1,4 +1,5 @@
-(ns nn-from-scratch.matrix-utils)
+(ns nn-from-scratch.matrix-utils
+  (:import [java.util Random]))
 
 (defn matrix?
   "Returns true if a data structure is a 2-D matrix, else false"
@@ -8,10 +9,14 @@
     (coll? (first m))))
 
 (defn create-matrix
-  "Creates a 2-D matrix of dimenstion MxN with random integers in it.
-   Optional upper-bound (exclusive) value of integers can be specified as well."
-  ([m n] (repeatedly m (fn [] (repeatedly n (fn [] (rand 1))))))
-  ([m n upper-bound] (repeatedly m (fn [] (repeatedly n (fn [] (rand upper-bound)))))))
+  "Creates a 2-D matrix of dimenstion MxN with random float values in it.
+   Optional seed (Integer Value) for the random matrix generator can be specified as well."
+  ([m n]
+    (let [r (Random. 100)]
+      (repeatedly m (fn [] (repeatedly n (fn [] (.nextFloat r)))))))
+  ([m n seed]
+    (let [r (Random. seed)]
+      (repeatedly m (fn [] (repeatedly n (fn [] (.nextFloat r))))))))
 
 (defn dimension
   "Returns the dimenston of a 2-D matrix in a vector two elements"
@@ -75,7 +80,7 @@
        (perform-arithmetic-op m *))))
 
 (defn mean
-  "Calculates the mean of the matrix"
+  "Calculates the mean of a 2-D matrix"
   [m]
   (let [averaged-rows (map (fn [row] (double (/ (reduce + row) (count row)))) m)]
     (double (/ (reduce + averaged-rows) (count averaged-rows)))))
