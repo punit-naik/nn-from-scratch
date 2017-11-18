@@ -6,7 +6,7 @@
   [m]
   (and
     (coll? m)
-    (every? coll? (first m))))
+    (try (every? coll? (first m)) (catch Exception e false))))
 
 (defn create-matrix
   "Creates a 2-D matrix of dimenstion MxN with random float values in it.
