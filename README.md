@@ -11,3 +11,10 @@ Code based on Siraj Raval's [YouTube](https://www.youtube.com/watch?v=262XJe2I2D
 ## Test
 
 `lein test`
+
+## License
+
+Copyright © 2017 FIXME
+
+Distributed under the Eclipse Public License either version 1.0 or (at your option) any later version.
+
