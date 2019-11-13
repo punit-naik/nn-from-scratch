@@ -12,7 +12,7 @@
   "Creates a 2-D matrix of dimenstion MxN with random float values in it.
    Optional seed (Integer Value) for the random matrix generator can be specified as well."
   ([m n]
-    (let [r (Random. 100)]
+    (let [r (Random. 1000)]
       (repeatedly m (fn [] (repeatedly n (fn [] (.nextFloat r)))))))
   ([m n seed]
     (let [r (Random. seed)]
