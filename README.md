@@ -14,7 +14,7 @@ Code based on Siraj Raval's [YouTube](https://www.youtube.com/watch?v=262XJe2I2D
 
 ## License
 
-Copyright © 2017 FIXME
+Copyright © 2017 [Punit Naik](https://github.com/punit-naik)
 
 Distributed under the Eclipse Public License either version 1.0 or (at your option) any later version.
 
