@@ -26,7 +26,7 @@
            predicted-output nil]
       
         (if (empty? stepz)
-          predicted-output
+          {:predicted predicted-output :expected expected-output}
           (let [;; Layers
                 layer-0 input
                 layer-1 (->> (matrix-multiply layer-0 synapse-0)
@@ -64,7 +64,9 @@
 (defn train-and-print
   "Trains the Neural Network and Print the result on the console"
   [steps error-logging]
-  (println "Predicted Output :" (train steps error-logging)))
+  (let [{:keys [expected predicted]} (train steps error-logging)]
+    (println "Actual Output    :" expected)
+    (println "Predicted Output :" predicted)))
 
 (defn -main
   [& args]
